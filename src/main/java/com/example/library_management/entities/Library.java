@@ -14,7 +14,6 @@ import java.util.List;
 @Getter
 @Setter
 @ToString(exclude = "books")
-@EqualsAndHashCode(exclude = "books")
 public class Library {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

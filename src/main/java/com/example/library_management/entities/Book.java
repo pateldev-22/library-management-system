@@ -1,5 +1,6 @@
 package com.example.library_management.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.*;
@@ -37,5 +38,6 @@ public class Book {
     private Set<Author> authors = new HashSet<>();
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<BorrowRecord> borrowRecords = new ArrayList<>();
 }

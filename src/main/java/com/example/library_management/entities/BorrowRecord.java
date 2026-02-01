@@ -1,5 +1,6 @@
 package com.example.library_management.entities;
 
+import com.example.library_management.config.BorrowingStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -21,7 +22,7 @@ public class BorrowRecord {
     private LocalDate returnDate;
 
     @Column(nullable = false)
-    private String status; // BORROWED, RETURNED, OVERDUE
+    private BorrowingStatus borrowingStatus;
 
     @ManyToOne
     @JoinColumn(name = "member_id", nullable = false)

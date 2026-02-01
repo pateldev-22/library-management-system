@@ -8,15 +8,18 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MemberDTO {
+
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "Name is required")
+    @Size(min = 2, max = 100, message = "Name must be between 2 and 100 characters")
     private String name;
 
-    @Email
-    @NotBlank
+    @Email(message = "Invalid email format")
+    @NotBlank(message = "Email is required")
     private String email;
 
-    @NotNull
+    @NotNull(message = "Membership date is required")
+    @PastOrPresent(message = "Membership date cannot be in the future")
     private LocalDate membershipDate;
 }
